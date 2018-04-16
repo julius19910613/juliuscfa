@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Record from './Record';
 import axios from 'axios';
-import * as RecordsAPI from '../utils/RecordsAPI'
+//import * as RecordsAPI from '../utils/RecordsAPI'
 
 class Records extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class Records extends Component {
   }
 
   componentDidMount() {
-    axios.get("localhost:3004/records").then(
+    axios.get("http://localhost:3004/records").then(
       response => {
         this.setState({
           records: response.data,

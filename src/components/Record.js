@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class Records extends Component {
+
+export default class Records extends Component {
   render() {
     return (
-      <tr key={this.props.record.id}>
-        <td>{this.props.record.date}</td>
-        <td>{this.props.record.title}</td>
-        <td>{this.props.record.amount}</td>
+      <tr>
+        <td>{this.props.date}</td>
+        <td>{this.props.title}</td>
+        <td>{this.props.amount}</td>
       </tr>
     );
   }
 }
 
-export default Records;
+ Records.propTypes = {
+   id: PropTypes.number,
+   date: PropTypes.string,
+  title: PropTypes.string,
+  amount: PropTypes.number
+ }

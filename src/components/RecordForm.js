@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import * as RecordsAPI from '../utils/RecordsAPI'
 
 
 export default class RecordForm extends Component {
@@ -30,6 +30,23 @@ export default class RecordForm extends Component {
 
     handleSubmit(event){
         event.preventDefault();
+
+        const data = {
+
+          date: this.state.date,
+          title: this.state.title,
+          amount: Number.parseInt(this.state.amount, 0)
+        };
+
+
+
+        RecordsAPI.create(data).then(
+          response => {
+            this.props.handleRecord(response.data)
+          }
+        ).catch(
+          error => console.log(error.message)
+        )
     }
 
   render() {

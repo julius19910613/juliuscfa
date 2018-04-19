@@ -1,22 +1,52 @@
 {
-    "records": [
-        {
-          "id": 1,
-          "date": "2017-03-17",
-          "title": "income",
-          "amount": 20
-        },
-        {
-          "id": 2,
-          "date": "2017-03-17",
-          "title": "outcome",
-          "amount": 20
-        },
-        {
-          "id": 3,
-          "date": "2017-03-17",
-          "title": "income",
-          "amount": 20
-        }
-      ]
+  "records": [
+    {
+      "id": 1,
+      "date": "2017-03-17",
+      "title": "income",
+      "amount": 20
+    },
+    {
+      "id": 2,
+      "date": "2017-03-17",
+      "title": "outcome",
+      "amount": 20
+    },
+    {
+      "id": 3,
+      "date": "2017-03-17",
+      "title": "income",
+      "amount": 20
+    },
+    {
+      "date": "2018-04-19",
+      "title": "outcome",
+      "amount": 100,
+      "id": 4
+    },
+    {
+      "date": "2018-04-19",
+      "title": "income",
+      "amount": 120,
+      "id": 5
+    },
+    {
+      "date": "2018-04-19",
+      "title": "income",
+      "amount": 122,
+      "id": 6
+    },
+    {
+      "date": "11",
+      "title": "22",
+      "amount": 33,
+      "id": 7
+    },
+    {
+      "date": "33",
+      "title": "22",
+      "amount": 44,
+      "id": 8
+    }
+  ]
 }

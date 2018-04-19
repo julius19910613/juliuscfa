@@ -66,6 +66,7 @@ class Records extends Component {
                 <td>Date</td>
                 <td>Time</td>
                 <td>Amount</td>
+                <td>Operation</td>
               </tr>
             </thead>
             <tbody>

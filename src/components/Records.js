@@ -49,6 +49,25 @@ class Records extends Component {
     })
   }
 
+  updateRecord(record, data) {
+    const recordIndex = this.state.records.indexOf(record);
+    const newRecords= this.state.records.map( (item, index) => {
+      if(index !== recordIndex) {
+        return item;
+      }
+
+      return {
+        ...item,
+        ...data
+      };
+    });
+
+    this.setState({
+        records: newRecords
+    });
+
+  }
+
   render() {
 
     const { error, isLoaded, records } = this.state;
@@ -71,7 +90,7 @@ class Records extends Component {
             </thead>
             <tbody>
               {this.state.records.map((record) =>
-                <Record key={record.id} {...record}  />)}
+                <Record key={record.id} record = {record} handleEditRecord = {this.updateRecord.bind(this)} />)}
             </tbody>
           </table>     
       );

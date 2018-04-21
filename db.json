@@ -1,10 +1,10 @@
 {
   "records": [
     {
-      "id": 1,
       "date": "2017-03-17",
       "title": "income",
-      "amount": 20
+      "amount": 250,
+      "id": 1
     },
     {
       "id": 2,

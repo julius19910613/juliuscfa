@@ -3,7 +3,7 @@
     {
       "date": "2018-04-19",
       "title": "outcome",
-      "amount": 100,
+      "amount": 188,
       "id": 5
     },
     {
@@ -15,14 +15,14 @@
     {
       "date": "2018-04-19",
       "title": "outcome",
-      "amount": -100,
+      "amount": -123,
       "id": 6
     },
     {
-      "id": 3,
       "date": "2017-03-17",
       "title": "income",
-      "amount": 20
+      "amount": 2048,
+      "id": 3
     },
     {
       "date": "2018-04-19",

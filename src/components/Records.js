@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Record from './Record';
 import RecordForm from './RecordForm';
 import * as RecordsAPI from '../utils/RecordsAPI'
-import AccountBox from './AccountBox';
+//import AccountBox from './AccountBox';
 import AmountBox from './AccountBox';
+import AccountFilter from './AccountFilter';
 
 class Records extends Component {
   constructor() {
@@ -11,16 +12,46 @@ class Records extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      records: []
+      records: [],
+      DateVH: [],
+      TitleVH: [],
+      AmountVH: []
     }
   }
 
   componentDidMount() {
     RecordsAPI.getAll().then(
       response => {
+
+        let dateSet = ['*'];
+        response.data.map((dateObj) => 
+          dateSet.push(dateObj.date)
+        );
+
+        dateSet = Array.from(new Set(dateSet));
+
+        let titleSet = ['*'];
+        response.data.map((titleObj) => 
+          titleSet.push(titleObj.title)
+        );
+
+        titleSet = Array.from(new Set(titleSet));
+
+        let amountSet = ['*'];
+        response.data.map((amountObj) => 
+          amountSet.push(amountObj.amount)
+        );
+
+        amountSet = Array.from(new Set(amountSet));
+
+
         this.setState({
           records: response.data,
-          isLoaded: true
+          isLoaded: true,
+          DateVH: dateSet,
+          TitleVH: titleSet,
+         AmountVH: amountSet
+    
         })
       }
     )
@@ -148,6 +179,8 @@ class Records extends Component {
         <AmountBox text="Debit" type="danger" amount={this.debits()} />
         <AmountBox text="Balance" type="info" amount={this.balance()} />
       </div>
+
+      <AccountFilter DateVH = {this.state.DateVH}  TitleVH = {this.state.TitleVH} AmountVH = {this.state.AmountVH}/>
 
       <RecordForm handleRecord={this.addRecord.bind(this)} />
       {recordsComponent}

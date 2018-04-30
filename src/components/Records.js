@@ -13,6 +13,7 @@ class Records extends Component {
       error: null,
       isLoaded: false,
       records: [],
+      originResult: [],
       DateVH: [],
       TitleVH: [],
       AmountVH: []
@@ -47,6 +48,7 @@ class Records extends Component {
 
         this.setState({
           records: response.data,
+          originResult: response.data,
           isLoaded: true,
           DateVH: dateSet,
           TitleVH: titleSet,
@@ -112,6 +114,35 @@ class Records extends Component {
 
 
   }
+
+filterRecord(filterCondition){
+
+  const dateFilter = filterCondition.date;
+  const titleFilter = filterCondition.title;
+
+  let filterResult = this.state.originResult;
+
+  if(dateFilter !== "*"){
+    filterResult = filterResult.filter((item, index) => 
+      filterResult[index].date === dateFilter
+    )
+  }
+
+  if(titleFilter !== "*"){
+    filterResult = filterResult.filter((item, index) => 
+      filterResult[index].title === titleFilter
+    )
+  }
+
+  this.setState({
+    records: filterResult
+
+  })
+
+
+
+}
+
 
   credits() {
     let credits = this.state.records.filter((record) => {
@@ -180,7 +211,10 @@ class Records extends Component {
         <AmountBox text="Balance" type="info" amount={this.balance()} />
       </div>
 
-      <AccountFilter DateVH = {this.state.DateVH}  TitleVH = {this.state.TitleVH} AmountVH = {this.state.AmountVH}/>
+      <AccountFilter DateVH = {this.state.DateVH}  
+      TitleVH = {this.state.TitleVH} 
+      AmountVH = {this.state.AmountVH}
+      handleFilter = {this.filterRecord.bind(this)}/>
 
       <RecordForm handleRecord={this.addRecord.bind(this)} />
       {recordsComponent}

@@ -6,19 +6,34 @@ export default class accountFilter extends Component{
        super();
 
        this.state = {
-           searchVariant: {
+           
                title: "",
                date: "",
                amount: ""
-           }
+           
        }
    }
+
+   handleSearch(event){
+       event.preventDefault();
+
+       const data = {
+           date: this.refs.date.value,
+           title: this.refs.title.value,
+           amount: Number.parseInt(this.refs.amount.value, 0)
+       };
+
+       //console.log(data);
+       this.props.handleFilter(data);
+
+   } 
+
    
     render(){
 
         return(
 
-            <form className="form-inline mb-3">
+            <form className="form-inline mb-3" onSubmit = {this.handleSearch.bind(this)}>
             <div className="form-group mr-1">
              <select className="selecpicker" ref = "date">
                 {this.props.DateVH.map((date) => 
